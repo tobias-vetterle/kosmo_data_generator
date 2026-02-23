@@ -3,8 +3,8 @@ import {
   type ProjectConfiguration,
   type TableKind,
   useProjectStore,
-} from '../../../../state/projectStore';
-import { createZip } from '../../../../lib/export/createZip';
+} from '../../../state/projectStore';
+import { createZip } from '../../../lib/export/createZip';
 
 const acceptedTableTypes: TableKind[] = ['aggregat', 'individual'];
 
