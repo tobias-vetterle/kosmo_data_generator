@@ -114,3 +114,83 @@ body {
 .panel h3 {
   margin-top: 0;
 }
+
+.column-editor {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.field-grid label,
+.column-editor label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.column-section {
+  padding: 0.6rem;
+  border: 1px solid #2d2d2d;
+  border-radius: 6px;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.inline-check {
+  display: flex !important;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.item-grid {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr 120px auto;
+  gap: 0.4rem;
+}
+
+.actions-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.secondary-button {
+  background: transparent;
+  color: #d4d4d4;
+  border: 1px solid #4a4a4a;
+}
+
+.column-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.column-card {
+  border: 1px solid #343434;
+  border-radius: 6px;
+  padding: 0.6rem;
+}
+
+.column-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.column-card-header p {
+  margin: 0.15rem 0 0;
+  color: #bdbdbd;
+}
