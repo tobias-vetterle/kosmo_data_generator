@@ -2,16 +2,19 @@ import { useState } from 'react';
 import { useProjectStore } from '../../state/projectStore';
 
 export function ColumnsPanel() {
-  const firstTable = useProjectStore((state) => state.tables[0]);
+  const tables = useProjectStore((state) => state.tables);
+  const activeTableId = useProjectStore((state) => state.activeTableId);
   const addColumn = useProjectStore((state) => state.addColumn);
   const [name, setName] = useState('id');
+
+  const activeTable = tables.find((table) => table.id === activeTableId);
 
   return (
     <section className="panel">
       <h3>Spaltendefinitionen</h3>
-      <p>Zieltabelle: {firstTable?.name ?? 'keine'}</p>
+      <p>Zieltabelle: {activeTable?.name ?? 'keine'}</p>
       <ul>
-        {firstTable?.columns.map((column) => (
+        {activeTable?.columns.map((column) => (
           <li key={column.id}>
             {column.name} ({column.type})
           </li>
@@ -21,8 +24,8 @@ export function ColumnsPanel() {
       <button
         type="button"
         onClick={() => {
-          if (!firstTable || !name.trim()) return;
-          addColumn(firstTable.id, {
+          if (!activeTable || !name.trim()) return;
+          addColumn(activeTable.id, {
             id: crypto.randomUUID(),
             name: name.trim(),
             type: 'string',
